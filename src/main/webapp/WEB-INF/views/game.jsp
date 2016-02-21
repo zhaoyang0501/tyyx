@@ -61,7 +61,7 @@
 <div class="container">
 	<div class="fourteen columns">
 		<div id="page-title">
-			<h2>最新资讯</h2>
+			<h2>游戏资料</h2>
 			<div id="bolded-line"></div>
 		</div>
 	</div>
@@ -83,7 +83,7 @@
 				<div class="clear"></div>
 				<a href="#" class="post-icon video"></a>
 				<div class="post-content">
-					<div class="post-title"><h2><a href="news/${bean.id}">${bean.title }</a></h2></div>
+					<div class="post-title"><h2><a href="game/${bean.id}">${bean.title }</a></h2></div>
 					<div class="post-meta"><span><i class="mini-ico-calendar"></i>${bean.createDate }</span> <span><i class="mini-ico-user"></i>By <a href="#">${bean.creater }</a></span> <span><i class="mini-ico-comment"></i></span></div>
 				</div>
 			</div>

@@ -65,11 +65,6 @@
 			<div id="bolded-line"></div>
 		</div>
 	</div>
-	<c:if test="${user.role=='班长' }">
-	<div class="two columns">
-	<a style="float: right" href="createNotice" class="button color medium">发布</a>
-	</div>
-	</c:if>
 </div>
 
 <div class="container">

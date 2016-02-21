@@ -50,25 +50,7 @@
 
 <!-- 960 Container -->
 <div class="container ie-dropdown-fix">
-<div id="header">
-		<!-- Logo -->
-		<div class="sixteen columns">
-			<div id="logo">
-				<a href="#"><img src="images/logo.png" alt="logo" /></a>
-				<div id="tagline">你的同学都在这里，快加入我们吧！</div>
-				<div class="clear"></div>
-			</div>
-		</div>
-	</div>
-	<div class="sixteen columns">
-		<div id="navigation">
-			<ul id="nav">
-				<li><a href="index.html">首页</a></li>
-				<li><a href="apply">申请班级</a></li>
-			</ul>
-		</div> 
-		<div class="clear"></div>
-	</div>
+<%@include file="./head.jsp" %>
 </div>
 <!-- 960 Container / End -->
 
@@ -90,19 +72,38 @@
 	<div class="sixteen columns " >
 		<!-- Form -->
 		<div id="contact-form">
-			<form method="post" action="${pageContext.request.contextPath}/goapply">
-				<div class="field">
-					<label>用户名:</label>
-					<input type="text" name="grades.name" class="text">
-				</div>
-				<div class="field">
-					<label>密码:</label>
-					<input type="text" name="grades.name" class="text">
-				</div>
-				
-				<div class="field">
-					<input  class='button color medium' type="submit"  value="登陆">
-				</div>
+			<form method="post" action="${pageContext.request.contextPath}/register">
+				 			<div class="field">
+							  <label>用户名</label>
+							  <input type="text"  name='username'  class="text">
+						   </div>
+						   <div class="field">
+							  <label>密码</label>
+							  <input type="password" name='password'  placeholder="密码" class="text">
+						   </div>
+						     <div class="field">
+							  <label>姓名</label>
+							  <input type="text" name='name'  placeholder="姓名" class="text">
+						   </div>
+						   
+						   <div class="field">
+							  <label>电子邮件</label>
+							  <input type="email"  name='email' placeholder="电子邮件" class="text">
+						   </div>
+						   
+						 
+						   <div class="field">
+							  <label>电话</label>
+							  <input type="text" name='tel' placeholder="电话" class="text">
+						   </div>
+						   
+						   <div class="field">
+							  <label>学校/单位</label>
+							  <input type="text"  name='grade'  placeholder="学校单位"  class="text">
+						   </div>
+						  <div class="field">
+								<input type="submit" class='button color medium' value="注册">
+						</div> 
 			</form>
 		</div>
 </div>

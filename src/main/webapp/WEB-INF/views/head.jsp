@@ -15,12 +15,12 @@
 			<ul id="nav">
 				<li><a href="${pageContext.request.contextPath}grades">首页</a></li>
 				<li><a href="${pageContext.request.contextPath}/news">最新资讯</a></li>
-				<li><a href="${pageContext.request.contextPath}/contact">游戏资料</a></li>
+				<li><a href="${pageContext.request.contextPath}/game">游戏资料</a></li>
 				<li><a href="${pageContext.request.contextPath}/notice">攻略技巧</a></li>
 				<li><a href="${pageContext.request.contextPath}/notice">玩家截图</a></li>
-				<li><a href="${pageContext.request.contextPath}/board">注册</a></li>
+				<li><a href="${pageContext.request.contextPath}/register">注册</a></li>
 				<li><a href="${pageContext.request.contextPath}、center">个人中心</a></li>
-				<li style="float: right"><a href="${pageContext.request.contextPath}/loginout">退出</a></li>
+				<li style="float: right">${user.name }  <a href="${pageContext.request.contextPath}/loginout">退出</a></li>
 			</ul>
 		</div> 
 		<div class="clear"></div>

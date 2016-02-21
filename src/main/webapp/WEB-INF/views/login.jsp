@@ -52,25 +52,7 @@
 
 <!-- 960 Container -->
 <div class="container ie-dropdown-fix">
-<div id="header">
-		<!-- Logo -->
-		<div class="sixteen columns">
-			<div id="logo">
-				<a href="#"><img src="images/logo1.jpg" alt="logo"  style="height: 114px" /></a>
-				<div id="tagline">你的同学都在这里，快加入我们吧！</div>
-				<div class="clear"></div>
-			</div>
-		</div>
-	</div>
-	<div class="sixteen columns">
-		<div id="navigation">
-			<ul id="nav">
-				<li><a href="index">首页</a></li>
-				<li><a href="apply">申请班级</a></li>
-			</ul>
-		</div> 
-		<div class="clear"></div>
-	</div>
+<%@include file="./head.jsp" %>
 </div>
 <!-- 960 Container / End -->
 
@@ -101,14 +83,14 @@
 	<div class="sixteen columns " >
 		<!-- Form -->
 		<div id="contact-form">
-			<form method="post" action="${pageContext.request.contextPath}/dologin">
+			<form method="post" action="${pageContext.request.contextPath}/gologin">
 				<div class="field">
 					<label>学号:</label>
-					<input type="text" name="user.id" class="text">
+					<input type="text" name="userName" class="text">
 				</div>
 				<div class="field">
 					<label>密码:</label>
-					<input type="password" name="user.password" class="text">
+					<input type="password" name="password" class="text">
 				</div>
 				
 				<div class="field">

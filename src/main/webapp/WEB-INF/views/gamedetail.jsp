@@ -18,27 +18,27 @@
 
 <!-- CSS
 ================================================== -->
-<link rel="stylesheet" type="text/css" href="css/style.css">
-<link rel="stylesheet" type="text/css" href="css/boxed.css" id="layout">
-<link rel="stylesheet" type="text/css" href="css/colors/green.css" id="colors">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/style.css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/boxed.css" id="layout">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/colors/green.css" id="colors">
 
 <!-- Java Script
 ================================================== -->
-<script src="js/jquery.min.js"></script>
-<script src="js/custom.js"></script>
-<script src="js/selectnav.js"></script>
-<script src="js/flexslider.js"></script>
-<script src="js/twitter.js"></script>
-<script src="js/tooltip.js"></script>
-<script src="js/effects.js"></script>
-<script src="js/fancybox.js"></script>
-<script src="js/carousel.js"></script>
-<script src="js/isotope.js"></script>
+<script src="${pageContext.request.contextPath}/js/jquery.min.js"></script>
+<script src="${pageContext.request.contextPath}/js/custom.js"></script>
+<script src="${pageContext.request.contextPath}/js/selectnav.js"></script>
+<script src="${pageContext.request.contextPath}/js/flexslider.js"></script>
+<script src="${pageContext.request.contextPath}/js/twitter.js"></script>
+<script src="${pageContext.request.contextPath}/js/tooltip.js"></script>
+<script src="${pageContext.request.contextPath}/js/effects.js"></script>
+<script src="${pageContext.request.contextPath}/js/fancybox.js"></script>
+<script src="${pageContext.request.contextPath}/js/carousel.js"></script>
+<script src="${pageContext.request.contextPath}/js/isotope.js"></script>
 
 <!-- Styles Switcher
 ================================================== -->
-<link rel="stylesheet" type="text/css" href="css/switcher.css">
-<script src="js/switcher.js"></script>
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/switcher.css">
+<script src="${pageContext.request.contextPath}/js/switcher.js"></script>
 
 </head>
 <body>
@@ -61,7 +61,7 @@
 <div class="container">
 	<div class="fourteen columns">
 		<div id="page-title">
-			<h2>最新资讯</h2>
+			<h2>游戏资料>${news.title }</h2>
 			<div id="bolded-line"></div>
 		</div>
 	</div>
@@ -78,16 +78,17 @@
 </div>
 <div class="container">
 	<div class="sixteen  columns">
-		<c:forEach items="${news }" var="bean">
 			<div class="post">
 				<div class="clear"></div>
 				<a href="#" class="post-icon video"></a>
 				<div class="post-content">
-					<div class="post-title"><h2><a href="news/${bean.id}">${bean.title }</a></h2></div>
-					<div class="post-meta"><span><i class="mini-ico-calendar"></i>${bean.createDate }</span> <span><i class="mini-ico-user"></i>By <a href="#">${bean.creater }</a></span> <span><i class="mini-ico-comment"></i></span></div>
+					<div class="post-title"><h2><a href="/news/${news.id}">${news.title }</a></h2></div>
+					<div class="post-meta"><span><i class="mini-ico-calendar"></i>${news.createDate }</span> <span><i class="mini-ico-user"></i>By <a href="#">${news.creater }</a></span> <span><i class="mini-ico-comment"></i></span></div>
+					<div class="post-description">
+						<p>${news.context }</p>
+					</div>
 				</div>
 			</div>
-		</c:forEach>
 	</div>
 	<!-- End Portfolio Content -->
 </div>
