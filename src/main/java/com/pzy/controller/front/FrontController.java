@@ -16,6 +16,7 @@ import com.pzy.entity.News;
 import com.pzy.entity.User;
 import com.pzy.service.GameService;
 import com.pzy.service.NewsService;
+import com.pzy.service.SkillService;
 import com.pzy.service.UserService;
 /***
  * 后台首页，处理后台登录验证权限等操作
@@ -30,6 +31,8 @@ public class FrontController {
 	private UserService userService;
 	@Autowired
 	private NewsService newsService;
+	@Autowired
+	private SkillService skillService;
 	
 	@Autowired
 	private GameService gameService;
@@ -62,7 +65,17 @@ public class FrontController {
 		model.addAttribute("news", gameService.find(id));
 		return "gamedetail";
 	}
+	@RequestMapping("skill")
+	public String skill(Model model) {
+		model.addAttribute("news", skillService.findAll());
+		return "skill";
+	}
 	
+	@RequestMapping("skill/{id}")
+	public String skill(Model model,@PathVariable Long id) {
+		model.addAttribute("news", skillService.find(id));
+		return "skilldetail";
+	}
 	@RequestMapping(value="register",method=RequestMethod.GET)
 	public String register() {
 		return "register";

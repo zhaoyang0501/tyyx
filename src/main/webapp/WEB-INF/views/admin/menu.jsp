@@ -32,14 +32,14 @@
 					<li><a href="${pageContext.request.contextPath}/admin/news/index"><i class="icon-pencil"></i>最新资讯管理</a></li>
 					<li><a href="${pageContext.request.contextPath}/admin/game/index"><i class="icon-pencil"></i>游戏资料管理</a></li>	
 					
-					<li><a href="${pageContext.request.contextPath}/admin/article/create"><i class="icon-pencil"></i>攻略技巧管理</a></li>	
+					<li><a href="${pageContext.request.contextPath}/admin/skill/index"><i class="icon-pencil"></i>攻略技巧管理</a></li>	
 				
 					<li><a href="${pageContext.request.contextPath}/admin/news/create"><i class="icon-pencil"></i>玩家截图管理</a></li>	
 					
 					<li><a href="${pageContext.request.contextPath}/admin/news/create"><i class="icon-pencil"></i>最新资讯发布</a></li>
 					<li><a href="${pageContext.request.contextPath}/admin/game/create"><i class="icon-pencil"></i>游戏资料发布</a></li>	
 					
-					<li><a href="${pageContext.request.contextPath}/admin/article/create"><i class="icon-pencil"></i>攻略技巧发布</a></li>	
+					<li><a href="${pageContext.request.contextPath}/admin/skill/create"><i class="icon-pencil"></i>攻略技巧发布</a></li>	
 				
 					<li><a href="${pageContext.request.contextPath}/admin/news/create"><i class="icon-pencil"></i>玩家截图发布</a></li>	
 					

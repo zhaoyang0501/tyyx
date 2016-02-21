@@ -16,7 +16,7 @@
 				<li><a href="${pageContext.request.contextPath}grades">首页</a></li>
 				<li><a href="${pageContext.request.contextPath}/news">最新资讯</a></li>
 				<li><a href="${pageContext.request.contextPath}/game">游戏资料</a></li>
-				<li><a href="${pageContext.request.contextPath}/notice">攻略技巧</a></li>
+				<li><a href="${pageContext.request.contextPath}/skill">攻略技巧</a></li>
 				<li><a href="${pageContext.request.contextPath}/notice">玩家截图</a></li>
 				<li><a href="${pageContext.request.contextPath}/register">注册</a></li>
 				<li><a href="${pageContext.request.contextPath}、center">个人中心</a></li>
