@@ -1,21 +1,18 @@
 package com.pzy.controller.front;
 
-import java.util.List;
-
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.pzy.entity.News;
 import com.pzy.entity.User;
 import com.pzy.service.GameService;
 import com.pzy.service.NewsService;
+import com.pzy.service.PhotoService;
 import com.pzy.service.SkillService;
 import com.pzy.service.UserService;
 /***
@@ -33,7 +30,8 @@ public class FrontController {
 	private NewsService newsService;
 	@Autowired
 	private SkillService skillService;
-	
+	@Autowired
+	private PhotoService photoService;
 	@Autowired
 	private GameService gameService;
 	@RequestMapping("index")
@@ -53,7 +51,11 @@ public class FrontController {
 		return "newsdetail";
 	}
 	
-	
+	@RequestMapping("photo")
+	public String photo(Model model) {
+		model.addAttribute("photos", photoService.findAll());
+		return "photo";
+	}
 	@RequestMapping("game")
 	public String game(Model model) {
 		model.addAttribute("news", gameService.findAll());
