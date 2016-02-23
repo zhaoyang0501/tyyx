@@ -86,7 +86,7 @@ public class IndexController {
 		List<News> list=newsService.findAll();
 		model.addAttribute("usernum",userService.findAll().size());
 		model.addAttribute("num1",100);
-    	if("admin".equals(userName)&&"123456qwe".equals(password)){
+    	if("admin".equals(userName)&&"123456".equals(password)){
     		User admin=new User();  
     		admin.setUsername("admin");
     		admin.setPassword("123456");

@@ -8,6 +8,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 @Entity
 @Table(name = "t_photo")
 public class Photo {
@@ -17,6 +19,7 @@ public class Photo {
 	private String name;
 	private String filePath;
 	private String remark;
+	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+08:00")
 	private Date createDate;
 	public Date getCreateDate() {
 		return createDate;

@@ -43,7 +43,7 @@
 				
 					<li><a href="${pageContext.request.contextPath}/admin/photo/create"><i class="icon-pencil"></i>玩家截图发布</a></li>	
 					
-					<li><a href="${pageContext.request.contextPath}/admin/articleview/index"><i class="icon-pencil"></i>评论管理</a></li>	
+					<li><a href="${pageContext.request.contextPath}/admin/msgBoard/index"><i class="icon-pencil"></i>评论管理</a></li>	
 				
 					</c:if>
 					

@@ -1,5 +1,7 @@
 package com.pzy.controller.front;
 
+import java.util.Date;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,9 +10,12 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.pzy.entity.MsgBoard;
 import com.pzy.entity.User;
 import com.pzy.service.GameService;
+import com.pzy.service.MsgBoardService;
 import com.pzy.service.NewsService;
 import com.pzy.service.PhotoService;
 import com.pzy.service.SkillService;
@@ -34,6 +39,8 @@ public class FrontController {
 	private PhotoService photoService;
 	@Autowired
 	private GameService gameService;
+	@Autowired
+	private MsgBoardService msgBoardService;
 	@RequestMapping("index")
 	public String index(Model model) {
 		return "index";
@@ -72,10 +79,18 @@ public class FrontController {
 		model.addAttribute("news", skillService.findAll());
 		return "skill";
 	}
-	
+	@RequestMapping("good")
+	@ResponseBody
+	public Integer good(Long	 id) {
+		MsgBoard bean=msgBoardService.findOne(id);
+		bean.setGood(bean.getGood()==null?1:bean.getGood()+1);
+		msgBoardService.save(bean);
+		return bean.getGood();
+	}
 	@RequestMapping("skill/{id}")
 	public String skill(Model model,@PathVariable Long id) {
 		model.addAttribute("news", skillService.find(id));
+		model.addAttribute("msgBoards", msgBoardService.findBySkill(skillService.find(id)));
 		return "skilldetail";
 	}
 	@RequestMapping(value="register",method=RequestMethod.GET)
@@ -85,10 +100,30 @@ public class FrontController {
 	
 	@RequestMapping(value="register",method=RequestMethod.POST)
 	public String register(User user,Model model) {
+		userService.save(user);
 		model.addAttribute("tip","注册成功，请登录！");
 		return "login";
 	}
 	
+	
+	@RequestMapping(value="saveMsgBoard",method=RequestMethod.POST)
+	public String saveMsgBoard(MsgBoard msg,Model model,HttpSession httpSession) {
+		User user =(User)httpSession.getAttribute("user");
+		msg.setCreateDate(new Date(System.currentTimeMillis()));
+		if(user==null){
+			model.addAttribute("tip","留言成功！");
+		}else {
+			msg.setGood(0);
+			msg.setUser(user);
+			if(msg.getReplyfor().getId()==null)
+				msg.setReplyfor(null);
+			msgBoardService.save(msg);
+			model.addAttribute("tip","留言成功！");
+		}
+		model.addAttribute("news", skillService.find(msg.getSkill().getId()));
+		model.addAttribute("msgBoards", msgBoardService.findBySkill(skillService.find(msg.getSkill().getId())));
+		return "skilldetail";
+	}
 	@RequestMapping("gologin")
 	public String gologin(HttpSession httpSession,String userName,String password,Model model)  {
 		User user=userService.login(userName, password);
