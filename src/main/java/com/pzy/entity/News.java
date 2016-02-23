@@ -9,6 +9,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 @Entity
 @Table(name = "t_news")
 public class News {
@@ -36,6 +38,7 @@ public class News {
 	public void setComefrom(String comefrom) {
 		this.comefrom = comefrom;
 	}
+	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+08:00")
 	private Date createDate;
 	
 	public Long getId() {

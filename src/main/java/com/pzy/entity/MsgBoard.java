@@ -11,6 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Transient;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 @Entity
 @Table(name = "t_msgboard")
 public class MsgBoard {
@@ -26,6 +28,11 @@ public class MsgBoard {
 	@ManyToOne(fetch = FetchType.EAGER)
 	private User user;
 	
+	@ManyToOne(fetch = FetchType.EAGER)
+	private Skill skill;
+	
+	private Integer good;
+	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+08:00")
 	private Date createDate;
 	@Transient
 	private List<MsgBoard> subMsg;
@@ -39,8 +46,20 @@ public class MsgBoard {
 		this.replyfor = replyfor;
 	}
 	
+	public Skill getSkill() {
+		return skill;
+	}
+	public void setSkill(Skill skill) {
+		this.skill = skill;
+	}
 	public Long getId() {
 		return id;
+	}
+	public Integer getGood() {
+		return good;
+	}
+	public void setGood(Integer good) {
+		this.good = good;
 	}
 	public void setId(Long id) {
 		this.id = id;

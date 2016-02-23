@@ -40,7 +40,14 @@
 ================================================== -->
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/switcher.css">
 <script src="${pageContext.request.contextPath}/js/switcher.js"></script>
+<script type="text/javascript">
 
+function fun_good(id,obj){
+	$.ajax({ url: "${pageContext.request.contextPath}/good?id="+id,  success: function(json){
+		$(obj).prev().html(json);
+      }});
+}
+</script>
 </head>
 <body>
 
@@ -104,9 +111,18 @@
 			 <c:if test="${bean.replyfor==null}">
 			 	<li style="width: 100%">
 					<div class="comments">
-						<div class="avatar"><img style="width: 50px" src="upload/head/" alt="" border="0"> </div>
+						<div class="avatar"><img style="width: 50px" src="${pageContext.request.contextPath}/images/head.png" alt="" border="0"> </div>
 						<div class="comment-des">
-						<div class="comment-by"><strong>${bean.user.name }</strong><span class="reply"><span style="color:#aaa">/ </span><a href="board?replyfor.id=${bean.id }">回复</a></span><span class="date">${bean.createDate}</span></div>
+						<div class="comment-by">
+							<strong>${bean.user.name }</strong>
+							<span class="reply">
+								 <span style="color:#aaa">/ </span>
+								
+								 <span class='good' style="float: right;color: red;">${bean.good }</span>	  <a href="javascript:void(0);" onclick="fun_good(${bean.id},this)"><i class="mini-ico-thumbs-up" style="color: red"></i></a>
+								  <a href="${pageContext.request.contextPath}/skill/${news.id }/?replyfor=${bean.id }">回复</a>
+							</span>
+							<span class="date">${bean.createDate}</span>
+						</div>
 							<p>${bean.msg}</p>
 						</div>
 					 </div>
@@ -115,9 +131,16 @@
 					  <c:forEach items="${bean.subMsg }" var="sub">
 					  <li style="width: 100%">
 						<div class="comments">
-							<div class="avatar"><img style="width: 50px" src="upload/head/" alt="" border="0"> </div>
+							<div class="avatar"><img style="width: 50px" src="${pageContext.request.contextPath}/images/head.png" alt="" border="0"> </div>
 							<div class="comment-des">
-							<div class="comment-by"><strong>${sub.user.name }</strong><span class="reply"><span style="color:#aaa">/  <span class="date">${bean.createDate}</span></div>
+							<div class="comment-by"><strong>${sub.user.name }</strong>
+							
+							<span class="reply">
+							 <span class='good' style="float: right;color: red;">${sub.good }</span>	  <a href="javascript:void(0);" onclick="fun_good(${sub.id},this)"><i class="mini-ico-thumbs-up" style="color: red"></i></a>
+							</span> 
+							<span class="date">${bean.createDate}</span>
+							</div>
+							
 							<p>${sub.msg}</p>
 							</div>
 						</div>
@@ -137,7 +160,8 @@
 	<div class="form-spacer"></div>
 	<div id="contact-form">
 			<form method="post"  action="${pageContext.request.contextPath}/saveMsgBoard">
-			<input type="hidden" name="replyfor.id" value="${replyfor.id }">
+			<input type="hidden" name='skill.id' value="${news.id}"/>
+			<input type="hidden" name="replyfor.id" value="${param.replyfor}">
 				<div class="field">
 					<label>留言内容: </label>
 					<textarea name='msg' class="text textarea"></textarea>
