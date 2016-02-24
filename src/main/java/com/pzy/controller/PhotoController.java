@@ -1,7 +1,6 @@
 package com.pzy.controller;
 import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
 import java.text.ParseException;
 import java.util.Date;
 import java.util.HashMap;
@@ -24,7 +23,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.pzy.entity.Photo;
-import com.pzy.service.CategoryService;
 import com.pzy.service.PhotoService;
 /***
  * @author panchaoyang
@@ -35,8 +33,6 @@ import com.pzy.service.PhotoService;
 public class PhotoController {
 	@Autowired
 	private PhotoService photoService;
-	@Autowired
-	private CategoryService categoryService;
 	@RequestMapping("index")
 	public String index(Model model) {
 		return "admin/photo/index";

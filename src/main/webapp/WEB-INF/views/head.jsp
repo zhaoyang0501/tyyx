@@ -13,13 +13,13 @@
 	<div class="sixteen columns">
 		<div id="navigation">
 			<ul id="nav">
-				<li><a href="${pageContext.request.contextPath}grades">首页</a></li>
+				<li><a href="${pageContext.request.contextPath}/index">首页</a></li>
 				<li><a href="${pageContext.request.contextPath}/news">最新资讯</a></li>
 				<li><a href="${pageContext.request.contextPath}/game">游戏资料</a></li>
 				<li><a href="${pageContext.request.contextPath}/skill">攻略技巧</a></li>
 				<li><a href="${pageContext.request.contextPath}/photo">玩家截图</a></li>
 				<li><a href="${pageContext.request.contextPath}/register">注册</a></li>
-				<li><a href="${pageContext.request.contextPath}center">个人中心</a></li>
+				<li><a href="${pageContext.request.contextPath}/login">登录</a></li>
 				<li style="float: right">${user.name }  <a href="${pageContext.request.contextPath}/loginout">退出</a></li>
 			</ul>
 		</div> 

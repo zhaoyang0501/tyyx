@@ -16,7 +16,6 @@ import org.springframework.data.domain.Sort.Direction;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
-import com.pzy.entity.Article;
 import com.pzy.entity.MsgBoard;
 import com.pzy.entity.Skill;
 import com.pzy.repository.MsgBoardRepository;

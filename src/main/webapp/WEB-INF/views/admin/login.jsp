@@ -13,7 +13,7 @@
 	<div class="container" style="margin-top:100px">
 		<div class="span12 login-header">
 		<h4 style="color:red; text-align: center;">${tip }</h4>
-		<h1 style="text-align: center;">欢迎登录文献系统</h1>
+		<h1 style="text-align: center;">欢迎登录天谕游戏后台管理</h1>
 		</div>
 		<form  style=" margin-top:100px; border: 1px solid #115928;" class="form-signin-ribbon" action="${pageContext.request.contextPath}/admin/gologin" method="post">
 				<div class="content">
@@ -26,9 +26,6 @@
 					</div>
 					
 					<button class="btn btn-block" type="submit">登 陆</button>
-					<div class="controls input-icon">
-						<span><a href="../register"> 没 有账号？点我 注册</a></span>
-					</div>
 				</div>
 		</form>
 	</div>

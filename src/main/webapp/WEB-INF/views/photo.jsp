@@ -69,15 +69,11 @@
 
 	<div class="fourteen columns">
 		<div id="page-title">
-			<h2>班级相册</h2>
+			<h2>游戏截图</h2>
 			<div id="bolded-line"></div>
 		</div>
 	</div>
-	<c:if test="${user.role=='班长' }">
-	<div class="two columns">
-	<a style="float: right" href="uploadPhoto" class="button color medium">上传</a>
-	</div>
-	</c:if>
+	
 </div>
 <div class="container">
 	<c:if test="${tip!=null }">

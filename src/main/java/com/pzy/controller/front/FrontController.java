@@ -143,6 +143,13 @@ public class FrontController {
 	public String login() {
 		return "login";
 	}
+	
+	@RequestMapping(value="loginout")
+	public String loginout(HttpSession httpSession) {
+		httpSession.removeAttribute("user");
+		return "index";
+	}
+	
 	@RequestMapping("exmple")
 	public String exmple() {
 		return "exmple";
